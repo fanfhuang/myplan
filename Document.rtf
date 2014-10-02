@@ -1,0 +1,2443 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22 Function:\par
+Example 1:\par
+>>> def whatsup(x):\par
+...     return 'what is up' + x\par
+...\par
+>>> print whatsup(' tony')\par
+what is up tony\par
+\par
+Example 2:\par
+>>> def plusten(y):\par
+...     return y+10\par
+...\par
+>>> print plusten(44)\par
+54\par
+>>>\par
+\par
+>>> def name(first,last):\par
+     print ('%s %s' % (first,last))\par
+\par
+    \par
+>>> def name(first,last):\par
+     print ('%s %s' % (first,last))\par
+>>> name("Fan", "Huang")\par
+Fan Huang\par
+>>>\par
+ \par
+>>> name("Fan", "Huang")\par
+Fan Huang\par
+>>> def name(first='Wenjin',last='Yang'):\par
+     print ('%s %s' % (first,last))     \par
+>>> name()\par
+Wenjin Yang\par
+>>>\par
+ >>> name('Evonne','Huang')\par
+Evonne Huang\par
+>>> name('Huang')\par
+Huang Yang\par
+\par
+>>> def list(*food):\par
+     print (food)\par
+\par
+    \par
+>>> list ('apples','orange','peach')\par
+('apples', 'orange', 'peach')\par
+\par
+>>> def profile(name,*ages):\par
+     print (name)\par
+     print (ages)\par
+\par
+    \par
+>>> profile('Bucky', 24,35,48,49)\par
+Bucky\par
+(24, 35, 48, 49)    <----tuple\par
+\par
+\par
+\par
+>>> def cart(**items):\par
+     print (items)\par
+\par
+    \par
+>>> cart(apples=6,peaches=6, beef=70)\par
+\{'beef': 70, 'peaches': 6, 'apples': 6\}    <-------------Dictionary\par
+\par
+>>> def profile(first,last,*ages,**items):\par
+     print (first, last)\par
+     print (ages)\par
+     print (items)\par
+\par
+    \par
+>>> profile('bucky', 'roerts', 13, 18,28,39,89, bacon=4, susage=9)\par
+bucky roerts\par
+(13, 18, 28, 39, 89)                       <-----tuple\par
+\{'bacon': 4, 'susage': 9\}                 <-dictionary\par
+>>> \par
+\par
+Tuple for function:\par
+>>> def example_tuple(a,b,c):\par
+     return a*b+c\par
+\par
+>>> tuna=(5,6,7)\par
+>>> example_tuple(*tuna)\par
+37\par
+\par
+\par
+Use dictionary for function:\par
+>>> def example_dictionary(**this):\par
+     print (this)\par
+\par
+    \par
+>>> bacon=\{"dad":49,'mom':45\}\par
+>>> example_dictionary(**bacon)\par
+\{'dad': 49, 'mom': 45\}\par
+>>>\par
+\par
+\par
+Class:  <---blueprint of objects\par
+Example 1:\par
+>>> class exampleClass:\par
+...     eyes="blue"\par
+...     age=22\par
+...     def thisMethod(self):   <----make sure to use the 1st parameter is self \par
+...         return 'hey this method'\par
+...\par
+>>> exampleObject=exampleClass()\par
+>>> exampleObject.age\par
+22\par
+>>> exampleObject.eyes\par
+'blue'\par
+>>> exampleObject.thisMethod()\par
+'hey this method'\par
+\par
+Example 2:\par
+>>> class className:\par
+...     def createName(self, name):\par
+...         self.name=name\par
+...     def displayName(self):\par
+...         return self.name\par
+...     def saying(self):\par
+...         print "hello %s" % self.name\par
+...\par
+>>> first=className()\par
+>>> second=className()\par
+>>> first.createName('bucky')\par
+>>> second.createName('tony')\par
+>>> first.displayName()\par
+'bucky'\par
+>>> first.saying()\par
+hello bucky\par
+>>> first.name\par
+'bucky'\par
+\par
+<-----self is the temporary function name placeholder\par
+\par
+\par
+Parent class vs child class:\par
+>>> class parentClass:\par
+...     var1="i am var1"\par
+...     var2="i am var2"\par
+...\par
+>>> class childClass(parentClass):\par
+\'85     pass                                     <--------------don't do anything\par
+...\par
+>>> ParentObject=parentClass()\par
+>>> ParentObject.var1\par
+'i am var1'\par
+>>> childObject=childClass()\par
+>>> childObject.var1\par
+'i am var1'\par
+>>> childObject.var2\par
+'i am var2'\par
+\par
+Overwrite variable in subclass:\par
+>>> class parent:\par
+     var1='bacon'\par
+     var2='suasage'\par
+>>> class child(parent):\par
+     var2='toast'  \par
+>>> pob=parent()\par
+>>> cob=child()\par
+>>> pob.var1\par
+'bacon'\par
+>>> pob.var2\par
+'suasage'\par
+>>> cob.var1\par
+'bacon'\par
+>>> cob.var2\par
+'toast'\par
+>>> \par
+\par
+\par
+\par
+Multiple parent class:\par
+>>> class Mom:\par
+...     var1="hey im mom"\par
+...\par
+>>> class Dad:\par
+...     var2="hey son, im dad"\par
+>>> class child(Mom,Dad):\par
+...     var3="im your son"\par
+...\par
+>>> childObject=child()\par
+>>> child.var1\par
+'hey im mom'\par
+>>> child.var2\par
+'hey son, im dad'\par
+>>> child.var3\par
+'im your son'\par
+\par
+\par
+Function vs. Constructor:\par
+Function:\par
+>>> class swine:\par
+...     def apples(self):\par
+...         print "beef pie"\par
+...\par
+>>> obj=swine()\par
+>>> obj.apples()\par
+beef pie\par
+\par
+Constructor:\par
+>>> class new:\par
+...     def __init__(self):\par
+...         print "this is a constructor"\par
+...         print "this also print out"\par
+...\par
+>>> newobj=new()\par
+this is a constructor\par
+this also print out\par
+>>>\par
+<----automatically create all actions in construction\par
+\par
+Import module:\par
+edit a file called "swineflu.py" <--must in directory Python3.4.1\par
+def testmod():\par
+    print "this baby worked"\par
+Way 1:\par
+>>> import swineflu\par
+>>> swineflu.testmod()\par
+this baby worked\par
+Way 2:\par
+>>> baby=swineflu.testmod\par
+>>> baby()\par
+this baby worked\par
+>>>\par
+\par
+If swineflu.py is modified\par
+have to reload module to take new content by:\par
+reload(swineflu)\par
+<---- for 3.4.1, \par
+import imp\par
+imp.reload(swineflue)\par
+swineflu.test_mod()\par
+\par
+Module info:\par
+ import time\par
+ dir(time)\par
+ help(time)\par
+ time.__doc__\par
+\par
+\par
+Write to a file:\par
+a.txt is empty\par
+fob=open('a.txt', 'w')\par
+fob.write('hey I change this file.')\par
+fob.close() \par
+\par
+On windows:\par
+>>> fob=open('c:/test/a.txt','w')\par
+>>> fob.write('This is test writing file.')\par
+26\par
+>>> fob.close()\par
+\par
+ \par
+Read a file:\par
+fob=open('a.txt', 'r')\par
+fob.read(3)\par
+'hey'\par
+ fob.read()\par
+ ' I change this file.'\par
+fob.close()\par
+\par
+\par
+Read line of file:\par
+>>> fob=open('c:/test/a.txt', 'w')\par
+>>> fob.write('This is 1st line of test writing file.\\n')\par
+39\par
+>>> fob.write('This is 2nd line of test writing file.\\n')\par
+39\par
+>>> fob.write('This is 3rd line of test writing file.\\n')\par
+39\par
+>>> fob.close()\par
+>>> fob=open('c:/test/a.txt','r')\par
+>>> print (fob.readline())\par
+This is 1st line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+This is 2nd line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+This is 3rd line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+\par
+>>> fob.close()\par
+>>> fob=open('c:/test/a.txt','r')\par
+>>> print (fob.readlines())\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', 'This is 3rd line of test writing file.\\n']\par
+>>> \par
+\par
+Modify line in a file:\par
+>>> fob=open('c:/test/a.txt', 'r')\par
+>>> listfile=fob.readlines()\par
+>>> listfile\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', 'This is 3rd line of test writing file.\\n']\par
+>>> fob.close()\par
+>>> listfile[2]='3rd line is changed.\\n'\par
+>>> listfile\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', '3rd line is changed.\\n']\par
+>>> fob=open('c:/test/a.txt', 'w')\par
+>>> fob.writelines(listfile)\par
+>>> fob.close()\par
+\par
+% is for reminder\par
+4**3 is for 4*4*4\par
+g=input("Enter a number here:")\par
+int(g)+13=57  <---python3.4.1 g is string not int.\par
+\par
+import math\par
+math.floor(18.7)+18\par
+math.sqrt(16)=4.0\par
+bucky=math.sqrt\par
+bucky(64)=8.0\par
+print ("Hello World") <--python 3.4.1\par
+\par
+x=input("Enter Name")\par
+print ("Hey ", x)\par
+\par
+'He\\'s a good man'\par
+\par
+a="xxx"\par
+b="yyy"\par
+a+b="xxxyyy"\par
+\par
+num=str(18)\par
+print ("Bucky Id is "+num)\par
+\par
+num2=32\par
+print ("Buky\\'s mom is "+'num')\par
+\par
+'Bright'[2]=i\par
+\par
+>>> example =[0,1,2,3,4,5,6,7,8,9]\par
+>>> example[4:8]\par
+[4, 5, 6, 7]\par
+>>> example[4:10]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[4:11]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[4:110]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[-5:0]\par
+[]\par
+>>> example[-5:-1]\par
+[5, 6, 7, 8]\par
+>>> example[-5:]\par
+[5, 6, 7, 8, 9]\par
+>>> example[:]\par
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\par
+>>> example[1:8:2]\par
+[1, 3, 5, 7]\par
+>>> example[10:0:-2]\par
+[9, 7, 5, 3, 1]\par
+>>> example[1::-2]\par
+[1]\par
+>>> example[::-2]\par
+[9, 7, 5, 3, 1]\par
+>>> [7,4,5]+[7,8,9\par
+\par
+\par
+\par
+\par
+\par
+ \par
+KeyboardInterrupt\par
+>>> [7,4,5]+[7,8,9]\par
+[7, 4, 5, 7, 8, 9]\par
+>>> 'fan'*10\par
+'fanfanfanfanfanfanfanfanfanfan'\par
+>>> [21]*10\par
+[21, 21, 21, 21, 21, 21, 21, 21, 21, 21]\par
+>>> name="roastbeef"\par
+>>> "z" in name\par
+False\par
+>>> "e" in name\par
+True\par
+\par
+>>> family=['mom', 'dad', 'emily', 'evonne']\par
+\par
+>>> "emily" in family\par
+True\par
+>>> "Emily" in family\par
+False\par
+>>> len(family)\par
+4\par
+>>> max(family)\par
+'mom'\par
+\par
+>>> numbers=[10,7,200,34,56,78,98,145]\par
+>>> max(numbers)\par
+200\par
+>>> min(numbers)\par
+7\par
+>>> list('congratulations')\par
+['c', 'o', 'n', 'g', 'r', 'a', 't', 'u', 'l', 'a', 't', 'i', 'o', 'n', 's']\par
+>>> numbers\par
+[10, 7, 200, 34, 56, 78, 98, 145]\par
+>>> numbers[3]=100\par
+>>> numbers\par
+[10, 7, 200, 100, 56, 78, 98, 145]\par
+>>> del numbers[3]\par
+>>> numbers\par
+[10, 7, 200, 56, 78, 98, 145]\par
+\par
+>>> slicing=list('intelligent')\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'i', 'g', 'e', 'n', 't']\par
+>>> slicing[6:]="BBBB"\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'B', 'B', 'B', 'B']\par
+>>> \par
+>>> slicing[6:]=list('Insert')\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'I', 'n', 's', 'e', 'r', 't']\par
+\par
+>>> slicing=[7,8,9]\par
+>>> slicing\par
+[7, 8, 9]\par
+>>> slicing[1:1]=[3,3,3]\par
+>>> slicing\par
+[7, 3, 3, 3, 8, 9]\par
+>>> slicing[1:5]=[]\par
+>>> slicing\par
+[7, 9]\par
+\par
+\par
+Method/Object:\par
+>>> face=[18, 20, 14]\par
+>>> face.append(45)\par
+>>> face\par
+[18, 20, 14, 45]\par
+>>> \par
+>>> apple =['i', 'love', 'apples', 'apples', 'now']\par
+>>> apple.count('apples')\par
+2\par
+>>> one=[1,2,3]\par
+>>> two=[4,5,6]\par
+>>> one.extend(two)\par
+>>> one\par
+[1, 2, 3, 4, 5, 6]\par
+\par
+\par
+>>> say= ['hey', 'now', 'brown', 'cow']\par
+>>> say.index('brown')\par
+2\par
+>>>\par
+>>> say.insert(2,'haha')\par
+>>> say\par
+['hey', 'now', 'haha', 'brown', 'cow']\par
+>>> say.pop(2)\par
+'haha'\par
+>>> say\par
+['hey', 'now', 'brown', 'cow']\par
+>>> say.remove('Brown')\par
+Traceback (most recent call last):\par
+  File "<pyshell#158>", line 1, in <module>\par
+    say.remove('Brown')\par
+ValueError: list.remove(x): x not in list\par
+>>> say.remove('brown')\par
+>>> \par
+>>> say.reverse()\par
+>>> say\par
+['hey', 'now', 'cow']\par
+>>> say.reverse()\par
+>>>\par
+\par
+>>> new=[27,13,78,100,4,200]\par
+>>> new.sort()\par
+>>> new\par
+[4, 13, 27, 78, 100, 200]\par
+>>> sorted('Testmethod')\par
+['T', 'd', 'e', 'e', 'h', 'm', 'o', 's', 't', 't']\par
+\par
+\par
+Tuple vs. list. Tuple cannot be changed\par
+>>> 41,42,32,45\par
+(41, 42, 32, 45)\par
+>>> bucky=(41, 42, 32, 45)\par
+>>> bucky[2]\par
+32\par
+>>> \par
+>>> bucky="Hey there %s, how's your %s"\par
+>>> varb=('Fan', 'hed')\par
+>>> print (bucky % varb)\par
+Hey there Fan, how's your hed\par
+>>> examples="Hey now Wendy nice cloth"\par
+>>> examples\par
+'Hey now Wendy nice cloth'\par
+>>> examples.find('nice')\par
+14\par
+\par
+>>> file=['hey', 'how', 'to', 'glue', '?']\par
+>>> glue='append'\par
+>>> glue.join(file)\par
+'heyappendhowappendtoappendglueappend?'\par
+>>> randstr='I Wish i HAD NO issE'\par
+>>> randstr.lower()\par
+'i wish i had no isse'\par
+>>> Trytoreplace='I love Emily.'\par
+>>> Trytoreplace.replace('Emily", 'Evonne')\par
+              \par
+SyntaxError: invalid syntax\par
+>>> Trytoreplace.replace('Emily', 'Evonne')\par
+'I love Evonne.'\par
+>>> \par
+\par
+Dictionary:\par
+>>> book= \{'Dad':'Fan', 'Mom':'Wendy', 'Dr1':'Emily', 'Dr2':'Evonne'\}\par
+>>> book\par
+\{'Dad': 'Fan', 'Mom': 'Wendy', 'Dr2': 'Evonne', 'Dr1': 'Emily'\}\par
+>>> ages=\{'Dad':49,'Mom':45\}\par
+>>> ages\par
+\{'Dad': 49, 'Mom': 45\}\par
+>>> book['Mom']\par
+'Wendy'\par
+>>> ages['Mom']\par
+45\par
+>>> ages.clear()\par
+>>> ages\par
+\{\}\par
+>>> tuna=book.copy()\par
+>>> tuna\par
+\{'Dad': 'Fan', 'Mom': 'Wendy', 'Dr2': 'Evonne', 'Dr1': 'Emily'\}\par
+\par
+If/else:\par
+Fish=input("Enter fish name:")\par
+if Fish=='tuna':\par
+    print ('Good job. This is what we want')\par
+else:\par
+    print ('Not luck to catch a ', Fish)\par
+\par
+Fish=input("Enter fish name:")\par
+if Fish=='tuna':\par
+    print ('Good job. This is what we want')\par
+elif Fish=='salmon':\par
+    print ('not bad to catch a', Fish)\par
+else:\par
+    print ('Not luck to catch a', Fish)\par
+\par
+\par
+\par
+Nesting:\par
+category=input('Enter animal:')\par
+animal=input("Enter type:")\par
+if category=='animal':\par
+    if animal=='cat':\par
+        print ('This is a cat which we want.')\par
+    else:\par
+        print ('No idea which animal of this.')\par
+else:\par
+    print ('Don\\'t know what is this category.')\par
+\par
+\par
+>>> 9<7\par
+False\par
+>>> 9<=9\par
+True\par
+>>> 9!=3\par
+True\par
+>>> 9!=9\par
+False\par
+>>> one=[21,22,23]\par
+>>> two=[21,22,23]\par
+>>> one==two\par
+True\par
+>>> one is two\par
+False\par
+>>> three=four=[30,31,34]\par
+>>> three is four\par
+True\par
+>>> pizza ='pizzahut'\par
+>>> 's' in pizza\par
+False\par
+>>> 'z' in pizza\par
+True\par
+>>> \par
+\par
+>>> example=5\par
+>>> if example >3 and example <10:\par
+     print ('The number is between 3 and 10')\par
+\par
+    \par
+The number is between 3 and 10\par
+>>> if example >3 or example <4:\par
+     print ('The number is working')\par
+\par
+    \par
+The number is working\par
+>>> \par
+\par
+>>> b=1\par
+>>> while b<=10:\par
+     print ("B is:", b)\par
+     b +=1\par
+\par
+    \par
+B is: 1\par
+B is: 2\par
+B is: 3\par
+B is: 4\par
+B is: 5\par
+B is: 6\par
+B is: 7\par
+B is: 8\par
+B is: 9\par
+B is: 10\par
+\par
+For:\par
+>>> gl=['bread','milk','meat','food','beaf']\par
+>>> gl\par
+['bread', 'milk', 'meat', 'food', 'beaf']\par
+>>> for food in gl:\par
+     print ('I want '+food)\par
+\par
+    \par
+I want bread\par
+I want milk\par
+I want meat\par
+I want food\par
+I want beaf\par
+>>>\par
+\par
+ \par
+>>> ages=\{'dad':49,'mom':45,'Emily':19,'Evonne':10\}\par
+>>> for item in ages:\par
+     print (item, ages[item])\par
+\par
+    \par
+Evonne 10\par
+Emily 19\par
+dad 49\par
+mom 45\par
+>>> \par
+\par
+Loops and break:\par
+>>> while 1:\par
+     name=input("Enter something here: ")\par
+     if name=='quit': break\par
+\par
+    \par
+Enter something here: haha\par
+Enter something here: Quit\par
+Enter something here: quit\par
+>>> \par
+\par
+\par
+Eclipse works with Python:\par
+\par
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=vHRRiBHI3to"}}{\fldrslt{\ul\cf1 https://www.youtube.com/watch?v=vHRRiBHI3to}}}\f0\fs22\par
+\par
+1. Install Python 3.4.1\par
+2. Make sure Java JRE 1.7 to replace 1.6(http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html)\par
+2. Install Eclipse IDE for Java Developer\par
+3. In Eclipse, install pydev from marketPlace.\par
+4. In Eclipse, in Windows->Preference, click "Pydev" to add new interpret.\par
+\par
+import urllib.request as urllib2\par
+import requests ({\field{\*\fldinst{HYPERLINK "http://www.youtube.com/watch?v=Ng5T18HyA-Q"}}{\fldrslt{\ul\cf1 http://www.youtube.com/watch?v=Ng5T18HyA-Q}}}\f0\fs22 )\par
+\par
+{\field{\*\fldinst{HYPERLINK "http://www.pythonforbeginners.com/error-handling/python-try-and-except"}}{\fldrslt{\ul\cf1 http://www.pythonforbeginners.com/error-handling/python-try-and-except}}}\f0\fs22\par
+IOError\par
+If the file cannot be opened.\par
+ValueError\par
+Raised when a built-in operation or function receives an argument that has the\par
+right type but an inappropriate value\par
+\par
+\par
+C:\\Python34\\Scripts\\pip.exe install selenium\par
+\par
+\par
+What is 'if __name__ == "__main__"' for?\par
+The if __name__ == "__main__": ... trick exists in Python so that our Python files can act as either reusable modules, or as standalone programs. As a toy example, let\rquote s say that we have two files:\par
+\par
+\par
+Documents/python_train/Books/byte_of_python.pdf\par
+ \par
+\par
+$ cat mymath.py\par
+def square(x):\par
+    return x * x\par
+\par
+if __name__ == '__main__':\par
+    print "test: square(42) ==", square(42)\par
+\par
+\par
+$ cat mygame.py\par
+import mymath\par
+\par
+print "this is mygame."\par
+print mymath.square(17)\par
+In this example, we\rquote ve written mymath.py to be both used as a utility module, as well as a standalone program. We can run mymath standalone by doing this:\par
+\par
+$ python mymath.py\par
+test: square(42) == 1764\par
+But we can also use mymath.py as a module; let\rquote s see what happens when we run mygame.py:\par
+\par
+$ python mygame.py\par
+this is mygame.\par
+289\par
+Notice that here we don\rquote t see the \lquote test\rquote  line that mymath.py had near the bottom of its code. That\rquote s because, in this context, mymath is not the main program. That\rquote s what the if __name__ == "__main__": ... trick is used for.\par
+\par
+\par
+from selenium import webdriver\par
+>>> webdriver\par
+<module 'selenium.webdriver' from 'C:\\\\Python34\\\\lib\\\\site-packages\\\\selenium\\\\webdriver\\\\__init__.py'>\par
+\par
+Remember that you can have an Else clause for the While loop.\par
+\par
+\par
+def my_function():\par
+"""Here is the doc string.\par
+Display the requirements"""\par
+print (my_function.__doc__)\par
+\par
+import os; print(os.getcwd()) \par
+\par
+\par
+>>> import sys # get list of attributes, in this case, for the sys module\par
+>>> dir(sys)\par
+['__displayhook__', '__doc__', '__excepthook__', '__name__', '__package__', '__s\par
+tderr__', '__stdin__', '__stdout__', '_clear_type_cache', '_compact_freelists',\par
+'_current_frames', '_getframe', 'api_version', 'argv', 'builtin_module_names', '\par
+byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'dllhandle'\par
+, 'dont_write_bytecode', 'exc_info', 'excepthook', 'exec_prefix', 'executable',\par
+'exit', 'flags', 'float_info', 'getcheckinterval', 'getdefaultencoding', 'getfil\par
+esystemencoding', 'getprofile', 'getrecursionlimit', 'getrefcount', 'getsizeof',\par
+'gettrace', 'getwindowsversion', 'hexversion', 'intern', 'maxsize', 'maxunicode\par
+', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platfor\par
+m', 'prefix', 'ps1', 'ps2', 'setcheckinterval', 'setprofile', 'setrecursionlimit\par
+', 'settrace', 'stderr', 'stdin', 'stdout', 'subversion', 'version', 'version_in\par
+fo', 'warnoptions', 'winver']\par
+>>> dir() # get list of attributes for current module\par
+['__builtins__', '__doc__', '__name__', '__package__', 'sys']\par
+>>> a = 5 # create a new variable 'a'\par
+>>> dir()\par
+['__builtins__', '__doc__', '__name__', '__package__', 'a', 'sys']\par
+>>> del a # delete/remove a name\par
+>>> dir()\par
+['__builtins__', '__doc__', '__name__', '__package__', 'sys']\par
+\par
+>>>help(sys)\par
+>>>sys.__doc_\par
+\par
+Packages are just folders of modules with a special __init__.py file that indicates\par
+to Python that this folder is special because it contains Python modules.\par
+\par
+There are four built-in data structures in Python - list, tuple, dictionary and set.\par
+\par
+Parentheses Although the parentheses are optional, I prefer always having\par
+them to make it obvious that it is a tuple, especially because it avoids\par
+ambiguity. For example, print(1,2,3) and print( (1,2,3) ) mean two\par
+different things - the former prints three numbers whereas the latter prints\par
+a tuple (which contains three numbers).\par
+\par
+Tuple with 0 or 1 items An empty tuple is constructed by an empty pair of\par
+parentheses such as myempty = (). However, a tuple with a single item\par
+is not so simple. You have to specify it using a comma following the first\par
+(and only) item so that Python can differentiate between a tuple and a\par
+pair of parentheses surrounding the object in an expression i.e. you have\par
+to specify singleton = (2 , ) if you mean you want a tuple containing\par
+the item 2.\par
+ \par
+\par
+set:\par
+>>> bri = set(['brazil', 'russia', 'india'])\par
+>>> 'india' in bri\par
+True\par
+>>> 'usa' in bri\par
+False\par
+>>> bric = bri.copy()\par
+>>> bric.add('china')\par
+>>> bric.issuperset(bri)\par
+True\par
+>>> bri.remove('russia')\par
+>>> bri & bric # OR bri.intersection(bric)\par
+\{'brazil', 'india'\}\par
+\par
+\par
+>>> "hello world"\par
+'hello world'\par
+>>> type("hello world")\par
+str\par
+>>> u"hello world"\par
+u'hello world'\par
+>>> type(u"hello world")\par
+unicode\par
+\par
+We can handle exceptions using the try\'85..except statement. We basically put\par
+our usual statements within the try-block and put all our error handlers in the\par
+except-block.  \par
+\par
+You can raise exceptions using the raise statement by providing the name of\par
+the error/exception and the exception object that is to be thrown.\par
+The error or exception that you can raise should be a class which directly or\par
+indirectly must be a derived class of the Exception class.\par
+\par
+There is much more to be explored in the standard library such as debugging,\par
+handling command line options, regular expressions and so on.\par
+The best way to further explore the standard library is to read Doug Hellmann\rquote s\par
+excellent Python Module of the Week series (also available as a book) and reading\par
+the Python documentation.\par
+\par
+ruby -e "$(curl -fsSL {\field{\*\fldinst{HYPERLINK "https://raw.github.com/mxcl/homebrew/go/install"}}{\fldrslt{\ul\cf1 https://raw.github.com/mxcl/homebrew/go/install}}}\f0\fs22 )"\par
+Then brew install Python\par
+brew install python\par
+Then the pip will work\par
+\par
+Function:\par
+Example 1:\par
+>>> def whatsup(x):\par
+...     return 'what is up' + x\par
+...\par
+>>> print whatsup(' tony')\par
+what is up tony\par
+\par
+Example 2:\par
+>>> def plusten(y):\par
+...     return y+10\par
+...\par
+>>> print plusten(44)\par
+54\par
+>>>\par
+\par
+>>> def name(first,last):\par
+     print ('%s %s' % (first,last))\par
+\par
+    \par
+>>> def name(first,last):\par
+     print ('%s %s' % (first,last))\par
+>>> name("Fan", "Huang")\par
+Fan Huang\par
+>>>\par
+ \par
+>>> name("Fan", "Huang")\par
+Fan Huang\par
+>>> def name(first='Wenjin',last='Yang'):\par
+     print ('%s %s' % (first,last))     \par
+>>> name()\par
+Wenjin Yang\par
+>>>\par
+ >>> name('Evonne','Huang')\par
+Evonne Huang\par
+>>> name('Huang')\par
+Huang Yang\par
+\par
+>>> def list(*food):\par
+     print (food)\par
+\par
+    \par
+>>> list ('apples','orange','peach')\par
+('apples', 'orange', 'peach')\par
+\par
+>>> def profile(name,*ages):\par
+     print (name)\par
+     print (ages)\par
+\par
+    \par
+>>> profile('Bucky', 24,35,48,49)\par
+Bucky\par
+(24, 35, 48, 49)    <----tuple\par
+\par
+\par
+\par
+>>> def cart(**items):\par
+     print (items)\par
+\par
+    \par
+>>> cart(apples=6,peaches=6, beef=70)\par
+\{'beef': 70, 'peaches': 6, 'apples': 6\}    <-------------Dictionary\par
+\par
+>>> def profile(first,last,*ages,**items):\par
+     print (first, last)\par
+     print (ages)\par
+     print (items)\par
+\par
+    \par
+>>> profile('bucky', 'roerts', 13, 18,28,39,89, bacon=4, susage=9)\par
+bucky roerts\par
+(13, 18, 28, 39, 89)                       <-----tuple\par
+\{'bacon': 4, 'susage': 9\}                 <-dictionary\par
+>>> \par
+\par
+Tuple for function:\par
+>>> def example_tuple(a,b,c):\par
+     return a*b+c\par
+\par
+>>> tuna=(5,6,7)\par
+>>> example_tuple(*tuna)\par
+37\par
+\par
+\par
+Use dictionary for function:\par
+>>> def example_dictionary(**this):\par
+     print (this)\par
+\par
+    \par
+>>> bacon=\{"dad":49,'mom':45\}\par
+>>> example_dictionary(**bacon)\par
+\{'dad': 49, 'mom': 45\}\par
+>>>\par
+\par
+\par
+Class:  <---blueprint of objects\par
+Example 1:\par
+>>> class exampleClass:\par
+...     eyes="blue"\par
+...     age=22\par
+...     def thisMethod(self):   <----make sure to use the 1st parameter is self \par
+...         return 'hey this method'\par
+...\par
+>>> exampleObject=exampleClass()\par
+>>> exampleObject.age\par
+22\par
+>>> exampleObject.eyes\par
+'blue'\par
+>>> exampleObject.thisMethod()\par
+'hey this method'\par
+\par
+Example 2:\par
+>>> class className:\par
+...     def createName(self, name):\par
+...         self.name=name\par
+...     def displayName(self):\par
+...         return self.name\par
+...     def saying(self):\par
+...         print "hello %s" % self.name\par
+...\par
+>>> first=className()\par
+>>> second=className()\par
+>>> first.createName('bucky')\par
+>>> second.createName('tony')\par
+>>> first.displayName()\par
+'bucky'\par
+>>> first.saying()\par
+hello bucky\par
+>>> first.name\par
+'bucky'\par
+\par
+<-----self is the temporary function name placeholder\par
+\par
+\par
+Parent class vs child class:\par
+>>> class parentClass:\par
+...     var1="i am var1"\par
+...     var2="i am var2"\par
+...\par
+>>> class childClass(parentClass):\par
+\'85     pass                                     <--------------don't do anything\par
+...\par
+>>> ParentObject=parentClass()\par
+>>> ParentObject.var1\par
+'i am var1'\par
+>>> childObject=childClass()\par
+>>> childObject.var1\par
+'i am var1'\par
+>>> childObject.var2\par
+'i am var2'\par
+\par
+Overwrite variable in subclass:\par
+>>> class parent:\par
+     var1='bacon'\par
+     var2='suasage'\par
+>>> class child(parent):\par
+     var2='toast'  \par
+>>> pob=parent()\par
+>>> cob=child()\par
+>>> pob.var1\par
+'bacon'\par
+>>> pob.var2\par
+'suasage'\par
+>>> cob.var1\par
+'bacon'\par
+>>> cob.var2\par
+'toast'\par
+>>> \par
+\par
+\par
+\par
+Multiple parent class:\par
+>>> class Mom:\par
+...     var1="hey im mom"\par
+...\par
+>>> class Dad:\par
+...     var2="hey son, im dad"\par
+>>> class child(Mom,Dad):\par
+...     var3="im your son"\par
+...\par
+>>> childObject=child()\par
+>>> child.var1\par
+'hey im mom'\par
+>>> child.var2\par
+'hey son, im dad'\par
+>>> child.var3\par
+'im your son'\par
+\par
+\par
+Function vs. Constructor:\par
+Function:\par
+>>> class swine:\par
+...     def apples(self):\par
+...         print "beef pie"\par
+...\par
+>>> obj=swine()\par
+>>> obj.apples()\par
+beef pie\par
+\par
+Constructor:\par
+>>> class new:\par
+...     def __init__(self):\par
+...         print "this is a constructor"\par
+...         print "this also print out"\par
+...\par
+>>> newobj=new()\par
+this is a constructor\par
+this also print out\par
+>>>\par
+<----automatically create all actions in construction\par
+\par
+Import module:\par
+edit a file called "swineflu.py" <--must in directory Python3.4.1\par
+def testmod():\par
+    print "this baby worked"\par
+Way 1:\par
+>>> import swineflu\par
+>>> swineflu.testmod()\par
+this baby worked\par
+Way 2:\par
+>>> baby=swineflu.testmod\par
+>>> baby()\par
+this baby worked\par
+>>>\par
+\par
+If swineflu.py is modified\par
+have to reload module to take new content by:\par
+reload(swineflu)\par
+<---- for 3.4.1, \par
+import imp\par
+imp.reload(swineflue)\par
+swineflu.test_mod()\par
+\par
+Module info:\par
+ import time\par
+ dir(time)\par
+ help(time)\par
+ time.__doc__\par
+\par
+\par
+Write to a file:\par
+a.txt is empty\par
+fob=open('a.txt', 'w')\par
+fob.write('hey I change this file.')\par
+fob.close() \par
+\par
+On windows:\par
+>>> fob=open('c:/test/a.txt','w')\par
+>>> fob.write('This is test writing file.')\par
+26\par
+>>> fob.close()\par
+\par
+ \par
+Read a file:\par
+fob=open('a.txt', 'r')\par
+fob.read(3)\par
+'hey'\par
+ fob.read()\par
+ ' I change this file.'\par
+fob.close()\par
+\par
+\par
+Read line of file:\par
+>>> fob=open('c:/test/a.txt', 'w')\par
+>>> fob.write('This is 1st line of test writing file.\\n')\par
+39\par
+>>> fob.write('This is 2nd line of test writing file.\\n')\par
+39\par
+>>> fob.write('This is 3rd line of test writing file.\\n')\par
+39\par
+>>> fob.close()\par
+>>> fob=open('c:/test/a.txt','r')\par
+>>> print (fob.readline())\par
+This is 1st line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+This is 2nd line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+This is 3rd line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+\par
+>>> fob.close()\par
+>>> fob=open('c:/test/a.txt','r')\par
+>>> print (fob.readlines())\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', 'This is 3rd line of test writing file.\\n']\par
+>>> \par
+\par
+Modify line in a file:\par
+>>> fob=open('c:/test/a.txt', 'r')\par
+>>> listfile=fob.readlines()\par
+>>> listfile\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', 'This is 3rd line of test writing file.\\n']\par
+>>> fob.close()\par
+>>> listfile[2]='3rd line is changed.\\n'\par
+>>> listfile\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', '3rd line is changed.\\n']\par
+>>> fob=open('c:/test/a.txt', 'w')\par
+>>> fob.writelines(listfile)\par
+>>> fob.close()\par
+\par
+% is for reminder\par
+4**3 is for 4*4*4\par
+g=input("Enter a number here:")\par
+int(g)+13=57  <---python3.4.1 g is string not int.\par
+\par
+import math\par
+math.floor(18.7)+18\par
+math.sqrt(16)=4.0\par
+bucky=math.sqrt\par
+bucky(64)=8.0\par
+print ("Hello World") <--python 3.4.1\par
+\par
+x=input("Enter Name")\par
+print ("Hey ", x)\par
+\par
+'He\\'s a good man'\par
+\par
+a="xxx"\par
+b="yyy"\par
+a+b="xxxyyy"\par
+\par
+num=str(18)\par
+print ("Bucky Id is "+num)\par
+\par
+num2=32\par
+print ("Buky\\'s mom is "+'num')\par
+\par
+'Bright'[2]=i\par
+\par
+>>> example =[0,1,2,3,4,5,6,7,8,9]\par
+>>> example[4:8]\par
+[4, 5, 6, 7]\par
+>>> example[4:10]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[4:11]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[4:110]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[-5:0]\par
+[]\par
+>>> example[-5:-1]\par
+[5, 6, 7, 8]\par
+>>> example[-5:]\par
+[5, 6, 7, 8, 9]\par
+>>> example[:]\par
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\par
+>>> example[1:8:2]\par
+[1, 3, 5, 7]\par
+>>> example[10:0:-2]\par
+[9, 7, 5, 3, 1]\par
+>>> example[1::-2]\par
+[1]\par
+>>> example[::-2]\par
+[9, 7, 5, 3, 1]\par
+>>> [7,4,5]+[7,8,9\par
+\par
+\par
+\par
+\par
+\par
+ \par
+KeyboardInterrupt\par
+>>> [7,4,5]+[7,8,9]\par
+[7, 4, 5, 7, 8, 9]\par
+>>> 'fan'*10\par
+'fanfanfanfanfanfanfanfanfanfan'\par
+>>> [21]*10\par
+[21, 21, 21, 21, 21, 21, 21, 21, 21, 21]\par
+>>> name="roastbeef"\par
+>>> "z" in name\par
+False\par
+>>> "e" in name\par
+True\par
+\par
+>>> family=['mom', 'dad', 'emily', 'evonne']\par
+\par
+>>> "emily" in family\par
+True\par
+>>> "Emily" in family\par
+False\par
+>>> len(family)\par
+4\par
+>>> max(family)\par
+'mom'\par
+\par
+>>> numbers=[10,7,200,34,56,78,98,145]\par
+>>> max(numbers)\par
+200\par
+>>> min(numbers)\par
+7\par
+>>> list('congratulations')\par
+['c', 'o', 'n', 'g', 'r', 'a', 't', 'u', 'l', 'a', 't', 'i', 'o', 'n', 's']\par
+>>> numbers\par
+[10, 7, 200, 34, 56, 78, 98, 145]\par
+>>> numbers[3]=100\par
+>>> numbers\par
+[10, 7, 200, 100, 56, 78, 98, 145]\par
+>>> del numbers[3]\par
+>>> numbers\par
+[10, 7, 200, 56, 78, 98, 145]\par
+\par
+>>> slicing=list('intelligent')\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'i', 'g', 'e', 'n', 't']\par
+>>> slicing[6:]="BBBB"\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'B', 'B', 'B', 'B']\par
+>>> \par
+>>> slicing[6:]=list('Insert')\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'I', 'n', 's', 'e', 'r', 't']\par
+\par
+>>> slicing=[7,8,9]\par
+>>> slicing\par
+[7, 8, 9]\par
+>>> slicing[1:1]=[3,3,3]\par
+>>> slicing\par
+[7, 3, 3, 3, 8, 9]\par
+>>> slicing[1:5]=[]\par
+>>> slicing\par
+[7, 9]\par
+\par
+\par
+Method/Object:\par
+>>> face=[18, 20, 14]\par
+>>> face.append(45)\par
+>>> face\par
+[18, 20, 14, 45]\par
+>>> \par
+>>> apple =['i', 'love', 'apples', 'apples', 'now']\par
+>>> apple.count('apples')\par
+2\par
+>>> one=[1,2,3]\par
+>>> two=[4,5,6]\par
+>>> one.extend(two)\par
+>>> one\par
+[1, 2, 3, 4, 5, 6]\par
+\par
+\par
+>>> say= ['hey', 'now', 'brown', 'cow']\par
+>>> say.index('brown')\par
+2\par
+>>>\par
+>>> say.insert(2,'haha')\par
+>>> say\par
+['hey', 'now', 'haha', 'brown', 'cow']\par
+>>> say.pop(2)\par
+'haha'\par
+>>> say\par
+['hey', 'now', 'brown', 'cow']\par
+>>> say.remove('Brown')\par
+Traceback (most recent call last):\par
+  File "<pyshell#158>", line 1, in <module>\par
+    say.remove('Brown')\par
+ValueError: list.remove(x): x not in list\par
+>>> say.remove('brown')\par
+>>> \par
+>>> say.reverse()\par
+>>> say\par
+['hey', 'now', 'cow']\par
+>>> say.reverse()\par
+>>>\par
+\par
+>>> new=[27,13,78,100,4,200]\par
+>>> new.sort()\par
+>>> new\par
+[4, 13, 27, 78, 100, 200]\par
+>>> sorted('Testmethod')\par
+['T', 'd', 'e', 'e', 'h', 'm', 'o', 's', 't', 't']\par
+\par
+\par
+Tuple vs. list. Tuple cannot be changed\par
+>>> 41,42,32,45\par
+(41, 42, 32, 45)\par
+>>> bucky=(41, 42, 32, 45)\par
+>>> bucky[2]\par
+32\par
+>>> \par
+>>> bucky="Hey there %s, how's your %s"\par
+>>> varb=('Fan', 'hed')\par
+>>> print (bucky % varb)\par
+Hey there Fan, how's your hed\par
+>>> examples="Hey now Wendy nice cloth"\par
+>>> examples\par
+'Hey now Wendy nice cloth'\par
+>>> examples.find('nice')\par
+14\par
+\par
+>>> file=['hey', 'how', 'to', 'glue', '?']\par
+>>> glue='append'\par
+>>> glue.join(file)\par
+'heyappendhowappendtoappendglueappend?'\par
+>>> randstr='I Wish i HAD NO issE'\par
+>>> randstr.lower()\par
+'i wish i had no isse'\par
+>>> Trytoreplace='I love Emily.'\par
+>>> Trytoreplace.replace('Emily", 'Evonne')\par
+              \par
+SyntaxError: invalid syntax\par
+>>> Trytoreplace.replace('Emily', 'Evonne')\par
+'I love Evonne.'\par
+>>> \par
+\par
+Dictionary:\par
+>>> book= \{'Dad':'Fan', 'Mom':'Wendy', 'Dr1':'Emily', 'Dr2':'Evonne'\}\par
+>>> book\par
+\{'Dad': 'Fan', 'Mom': 'Wendy', 'Dr2': 'Evonne', 'Dr1': 'Emily'\}\par
+>>> ages=\{'Dad':49,'Mom':45\}\par
+>>> ages\par
+\{'Dad': 49, 'Mom': 45\}\par
+>>> book['Mom']\par
+'Wendy'\par
+>>> ages['Mom']\par
+45\par
+>>> ages.clear()\par
+>>> ages\par
+\{\}\par
+>>> tuna=book.copy()\par
+>>> tuna\par
+\{'Dad': 'Fan', 'Mom': 'Wendy', 'Dr2': 'Evonne', 'Dr1': 'Emily'\}\par
+\par
+If/else:\par
+Fish=input("Enter fish name:")\par
+if Fish=='tuna':\par
+    print ('Good job. This is what we want')\par
+else:\par
+    print ('Not luck to catch a ', Fish)\par
+\par
+Fish=input("Enter fish name:")\par
+if Fish=='tuna':\par
+    print ('Good job. This is what we want')\par
+elif Fish=='salmon':\par
+    print ('not bad to catch a', Fish)\par
+else:\par
+    print ('Not luck to catch a', Fish)\par
+\par
+\par
+\par
+Nesting:\par
+category=input('Enter animal:')\par
+animal=input("Enter type:")\par
+if category=='animal':\par
+    if animal=='cat':\par
+        print ('This is a cat which we want.')\par
+    else:\par
+        print ('No idea which animal of this.')\par
+else:\par
+    print ('Don\\'t know what is this category.')\par
+\par
+\par
+>>> 9<7\par
+False\par
+>>> 9<=9\par
+True\par
+>>> 9!=3\par
+True\par
+>>> 9!=9\par
+False\par
+>>> one=[21,22,23]\par
+>>> two=[21,22,23]\par
+>>> one==two\par
+True\par
+>>> one is two\par
+False\par
+>>> three=four=[30,31,34]\par
+>>> three is four\par
+True\par
+>>> pizza ='pizzahut'\par
+>>> 's' in pizza\par
+False\par
+>>> 'z' in pizza\par
+True\par
+>>> \par
+\par
+>>> example=5\par
+>>> if example >3 and example <10:\par
+     print ('The number is between 3 and 10')\par
+\par
+    \par
+The number is between 3 and 10\par
+>>> if example >3 or example <4:\par
+     print ('The number is working')\par
+\par
+    \par
+The number is working\par
+>>> \par
+\par
+>>> b=1\par
+>>> while b<=10:\par
+     print ("B is:", b)\par
+     b +=1\par
+\par
+    \par
+B is: 1\par
+B is: 2\par
+B is: 3\par
+B is: 4\par
+B is: 5\par
+B is: 6\par
+B is: 7\par
+B is: 8\par
+B is: 9\par
+B is: 10\par
+\par
+For:\par
+>>> gl=['bread','milk','meat','food','beaf']\par
+>>> gl\par
+['bread', 'milk', 'meat', 'food', 'beaf']\par
+>>> for food in gl:\par
+     print ('I want '+food)\par
+\par
+    \par
+I want bread\par
+I want milk\par
+I want meat\par
+I want food\par
+I want beaf\par
+>>>\par
+\par
+ \par
+>>> ages=\{'dad':49,'mom':45,'Emily':19,'Evonne':10\}\par
+>>> for item in ages:\par
+     print (item, ages[item])\par
+\par
+    \par
+Evonne 10\par
+Emily 19\par
+dad 49\par
+mom 45\par
+>>> \par
+\par
+Loops and break:\par
+>>> while 1:\par
+     name=input("Enter something here: ")\par
+     if name=='quit': break\par
+\par
+    \par
+Enter something here: haha\par
+Enter something here: Quit\par
+Enter something here: quit\par
+>>> \par
+\par
+\par
+Eclipse works with Python:\par
+\par
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=vHRRiBHI3to"}}{\fldrslt{\ul\cf1 https://www.youtube.com/watch?v=vHRRiBHI3to}}}\f0\fs22\par
+\par
+1. Install Python 3.4.1\par
+2. Make sure Java JRE 1.7 to replace 1.6(http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html)\par
+2. Install Eclipse IDE for Java Developer\par
+3. In Eclipse, install pydev from marketPlace.\par
+4. In Eclipse, in Windows->Preference, click "Pydev" to add new interpret.\par
+\par
+import urllib.request as urllib2\par
+import requests ({\field{\*\fldinst{HYPERLINK "http://www.youtube.com/watch?v=Ng5T18HyA-Q"}}{\fldrslt{\ul\cf1 http://www.youtube.com/watch?v=Ng5T18HyA-Q}}}\f0\fs22 )\par
+\par
+{\field{\*\fldinst{HYPERLINK "http://www.pythonforbeginners.com/error-handling/python-try-and-except"}}{\fldrslt{\ul\cf1 http://www.pythonforbeginners.com/error-handling/python-try-and-except}}}\f0\fs22\par
+IOError\par
+If the file cannot be opened.\par
+ValueError\par
+Raised when a built-in operation or function receives an argument that has the\par
+right type but an inappropriate value\par
+\par
+\par
+C:\\Python34\\Scripts\\pip.exe install selenium\par
+\par
+\par
+What is 'if __name__ == "__main__"' for?\par
+The if __name__ == "__main__": ... trick exists in Python so that our Python files can act as either reusable modules, or as standalone programs. As a toy example, let\rquote s say that we have two files:\par
+\par
+\par
+Documents/python_train/Books/byte_of_python.pdf\par
+ \par
+\par
+$ cat mymath.py\par
+def square(x):\par
+    return x * x\par
+\par
+if __name__ == '__main__':\par
+    print "test: square(42) ==", square(42)\par
+\par
+\par
+$ cat mygame.py\par
+import mymath\par
+\par
+print "this is mygame."\par
+print mymath.square(17)\par
+In this example, we\rquote ve written mymath.py to be both used as a utility module, as well as a standalone program. We can run mymath standalone by doing this:\par
+\par
+$ python mymath.py\par
+test: square(42) == 1764\par
+But we can also use mymath.py as a module; let\rquote s see what happens when we run mygame.py:\par
+\par
+$ python mygame.py\par
+this is mygame.\par
+289\par
+Notice that here we don\rquote t see the \lquote test\rquote  line that mymath.py had near the bottom of its code. That\rquote s because, in this context, mymath is not the main program. That\rquote s what the if __name__ == "__main__": ... trick is used for.\par
+\par
+\par
+from selenium import webdriver\par
+>>> webdriver\par
+<module 'selenium.webdriver' from 'C:\\\\Python34\\\\lib\\\\site-packages\\\\selenium\\\\webdriver\\\\__init__.py'>\par
+\par
+Remember that you can have an Else clause for the While loop.\par
+\par
+\par
+def my_function():\par
+"""Here is the doc string.\par
+Display the requirements"""\par
+print (my_function.__doc__)\par
+\par
+import os; print(os.getcwd()) \par
+\par
+\par
+>>> import sys # get list of attributes, in this case, for the sys module\par
+>>> dir(sys)\par
+['__displayhook__', '__doc__', '__excepthook__', '__name__', '__package__', '__s\par
+tderr__', '__stdin__', '__stdout__', '_clear_type_cache', '_compact_freelists',\par
+'_current_frames', '_getframe', 'api_version', 'argv', 'builtin_module_names', '\par
+byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'dllhandle'\par
+, 'dont_write_bytecode', 'exc_info', 'excepthook', 'exec_prefix', 'executable',\par
+'exit', 'flags', 'float_info', 'getcheckinterval', 'getdefaultencoding', 'getfil\par
+esystemencoding', 'getprofile', 'getrecursionlimit', 'getrefcount', 'getsizeof',\par
+'gettrace', 'getwindowsversion', 'hexversion', 'intern', 'maxsize', 'maxunicode\par
+', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platfor\par
+m', 'prefix', 'ps1', 'ps2', 'setcheckinterval', 'setprofile', 'setrecursionlimit\par
+', 'settrace', 'stderr', 'stdin', 'stdout', 'subversion', 'version', 'version_in\par
+fo', 'warnoptions', 'winver']\par
+>>> dir() # get list of attributes for current module\par
+['__builtins__', '__doc__', '__name__', '__package__', 'sys']\par
+>>> a = 5 # create a new variable 'a'\par
+>>> dir()\par
+['__builtins__', '__doc__', '__name__', '__package__', 'a', 'sys']\par
+>>> del a # delete/remove a name\par
+>>> dir()\par
+['__builtins__', '__doc__', '__name__', '__package__', 'sys']\par
+\par
+>>>help(sys)\par
+>>>sys.__doc_\par
+\par
+Packages are just folders of modules with a special __init__.py file that indicates\par
+to Python that this folder is special because it contains Python modules.\par
+\par
+There are four built-in data structures in Python - list, tuple, dictionary and set.\par
+\par
+Parentheses Although the parentheses are optional, I prefer always having\par
+them to make it obvious that it is a tuple, especially because it avoids\par
+ambiguity. For example, print(1,2,3) and print( (1,2,3) ) mean two\par
+different things - the former prints three numbers whereas the latter prints\par
+a tuple (which contains three numbers).\par
+\par
+Tuple with 0 or 1 items An empty tuple is constructed by an empty pair of\par
+parentheses such as myempty = (). However, a tuple with a single item\par
+is not so simple. You have to specify it using a comma following the first\par
+(and only) item so that Python can differentiate between a tuple and a\par
+pair of parentheses surrounding the object in an expression i.e. you have\par
+to specify singleton = (2 , ) if you mean you want a tuple containing\par
+the item 2.\par
+ \par
+\par
+set:\par
+>>> bri = set(['brazil', 'russia', 'india'])\par
+>>> 'india' in bri\par
+True\par
+>>> 'usa' in bri\par
+False\par
+>>> bric = bri.copy()\par
+>>> bric.add('china')\par
+>>> bric.issuperset(bri)\par
+True\par
+>>> bri.remove('russia')\par
+>>> bri & bric # OR bri.intersection(bric)\par
+\{'brazil', 'india'\}\par
+\par
+\par
+>>> "hello world"\par
+'hello world'\par
+>>> type("hello world")\par
+str\par
+>>> u"hello world"\par
+u'hello world'\par
+>>> type(u"hello world")\par
+unicode\par
+\par
+We can handle exceptions using the try\'85..except statement. We basically put\par
+our usual statements within the try-block and put all our error handlers in the\par
+except-block.  \par
+\par
+You can raise exceptions using the raise statement by providing the name of\par
+the error/exception and the exception object that is to be thrown.\par
+The error or exception that you can raise should be a class which directly or\par
+indirectly must be a derived class of the Exception class.\par
+\par
+There is much more to be explored in the standard library such as debugging,\par
+handling command line options, regular expressions and so on.\par
+The best way to further explore the standard library is to read Doug Hellmann\rquote s\par
+excellent Python Module of the Week series (also available as a book) and reading\par
+the Python documentation.\par
+\par
+ruby -e "$(curl -fsSL {\field{\*\fldinst{HYPERLINK "https://raw.github.com/mxcl/homebrew/go/install"}}{\fldrslt{\ul\cf1 https://raw.github.com/mxcl/homebrew/go/install}}}\f0\fs22 )"\par
+Then brew install Python\par
+brew install python\par
+Then the pip will work\par
+Function:\par
+Example 1:\par
+>>> def whatsup(x):\par
+...     return 'what is up' + x\par
+...\par
+>>> print whatsup(' tony')\par
+what is up tony\par
+\par
+Example 2:\par
+>>> def plusten(y):\par
+...     return y+10\par
+...\par
+>>> print plusten(44)\par
+54\par
+>>>\par
+\par
+>>> def name(first,last):\par
+     print ('%s %s' % (first,last))\par
+\par
+    \par
+>>> def name(first,last):\par
+     print ('%s %s' % (first,last))\par
+>>> name("Fan", "Huang")\par
+Fan Huang\par
+>>>\par
+ \par
+>>> name("Fan", "Huang")\par
+Fan Huang\par
+>>> def name(first='Wenjin',last='Yang'):\par
+     print ('%s %s' % (first,last))     \par
+>>> name()\par
+Wenjin Yang\par
+>>>\par
+ >>> name('Evonne','Huang')\par
+Evonne Huang\par
+>>> name('Huang')\par
+Huang Yang\par
+\par
+>>> def list(*food):\par
+     print (food)\par
+\par
+    \par
+>>> list ('apples','orange','peach')\par
+('apples', 'orange', 'peach')\par
+\par
+>>> def profile(name,*ages):\par
+     print (name)\par
+     print (ages)\par
+\par
+    \par
+>>> profile('Bucky', 24,35,48,49)\par
+Bucky\par
+(24, 35, 48, 49)    <----tuple\par
+\par
+\par
+\par
+>>> def cart(**items):\par
+     print (items)\par
+\par
+    \par
+>>> cart(apples=6,peaches=6, beef=70)\par
+\{'beef': 70, 'peaches': 6, 'apples': 6\}    <-------------Dictionary\par
+\par
+>>> def profile(first,last,*ages,**items):\par
+     print (first, last)\par
+     print (ages)\par
+     print (items)\par
+\par
+    \par
+>>> profile('bucky', 'roerts', 13, 18,28,39,89, bacon=4, susage=9)\par
+bucky roerts\par
+(13, 18, 28, 39, 89)                       <-----tuple\par
+\{'bacon': 4, 'susage': 9\}                 <-dictionary\par
+>>> \par
+\par
+Tuple for function:\par
+>>> def example_tuple(a,b,c):\par
+     return a*b+c\par
+\par
+>>> tuna=(5,6,7)\par
+>>> example_tuple(*tuna)\par
+37\par
+\par
+\par
+Use dictionary for function:\par
+>>> def example_dictionary(**this):\par
+     print (this)\par
+\par
+    \par
+>>> bacon=\{"dad":49,'mom':45\}\par
+>>> example_dictionary(**bacon)\par
+\{'dad': 49, 'mom': 45\}\par
+>>>\par
+\par
+\par
+Class:  <---blueprint of objects\par
+Example 1:\par
+>>> class exampleClass:\par
+...     eyes="blue"\par
+...     age=22\par
+...     def thisMethod(self):   <----make sure to use the 1st parameter is self \par
+...         return 'hey this method'\par
+...\par
+>>> exampleObject=exampleClass()\par
+>>> exampleObject.age\par
+22\par
+>>> exampleObject.eyes\par
+'blue'\par
+>>> exampleObject.thisMethod()\par
+'hey this method'\par
+\par
+Example 2:\par
+>>> class className:\par
+...     def createName(self, name):\par
+...         self.name=name\par
+...     def displayName(self):\par
+...         return self.name\par
+...     def saying(self):\par
+...         print "hello %s" % self.name\par
+...\par
+>>> first=className()\par
+>>> second=className()\par
+>>> first.createName('bucky')\par
+>>> second.createName('tony')\par
+>>> first.displayName()\par
+'bucky'\par
+>>> first.saying()\par
+hello bucky\par
+>>> first.name\par
+'bucky'\par
+\par
+<-----self is the temporary function name placeholder\par
+\par
+\par
+Parent class vs child class:\par
+>>> class parentClass:\par
+...     var1="i am var1"\par
+...     var2="i am var2"\par
+...\par
+>>> class childClass(parentClass):\par
+\'85     pass                                     <--------------don't do anything\par
+...\par
+>>> ParentObject=parentClass()\par
+>>> ParentObject.var1\par
+'i am var1'\par
+>>> childObject=childClass()\par
+>>> childObject.var1\par
+'i am var1'\par
+>>> childObject.var2\par
+'i am var2'\par
+\par
+Overwrite variable in subclass:\par
+>>> class parent:\par
+     var1='bacon'\par
+     var2='suasage'\par
+>>> class child(parent):\par
+     var2='toast'  \par
+>>> pob=parent()\par
+>>> cob=child()\par
+>>> pob.var1\par
+'bacon'\par
+>>> pob.var2\par
+'suasage'\par
+>>> cob.var1\par
+'bacon'\par
+>>> cob.var2\par
+'toast'\par
+>>> \par
+\par
+\par
+\par
+Multiple parent class:\par
+>>> class Mom:\par
+...     var1="hey im mom"\par
+...\par
+>>> class Dad:\par
+...     var2="hey son, im dad"\par
+>>> class child(Mom,Dad):\par
+...     var3="im your son"\par
+...\par
+>>> childObject=child()\par
+>>> child.var1\par
+'hey im mom'\par
+>>> child.var2\par
+'hey son, im dad'\par
+>>> child.var3\par
+'im your son'\par
+\par
+\par
+Function vs. Constructor:\par
+Function:\par
+>>> class swine:\par
+...     def apples(self):\par
+...         print "beef pie"\par
+...\par
+>>> obj=swine()\par
+>>> obj.apples()\par
+beef pie\par
+\par
+Constructor:\par
+>>> class new:\par
+...     def __init__(self):\par
+...         print "this is a constructor"\par
+...         print "this also print out"\par
+...\par
+>>> newobj=new()\par
+this is a constructor\par
+this also print out\par
+>>>\par
+<----automatically create all actions in construction\par
+\par
+Import module:\par
+edit a file called "swineflu.py" <--must in directory Python3.4.1\par
+def testmod():\par
+    print "this baby worked"\par
+Way 1:\par
+>>> import swineflu\par
+>>> swineflu.testmod()\par
+this baby worked\par
+Way 2:\par
+>>> baby=swineflu.testmod\par
+>>> baby()\par
+this baby worked\par
+>>>\par
+\par
+If swineflu.py is modified\par
+have to reload module to take new content by:\par
+reload(swineflu)\par
+<---- for 3.4.1, \par
+import imp\par
+imp.reload(swineflue)\par
+swineflu.test_mod()\par
+\par
+Module info:\par
+ import time\par
+ dir(time)\par
+ help(time)\par
+ time.__doc__\par
+\par
+\par
+Write to a file:\par
+a.txt is empty\par
+fob=open('a.txt', 'w')\par
+fob.write('hey I change this file.')\par
+fob.close() \par
+\par
+On windows:\par
+>>> fob=open('c:/test/a.txt','w')\par
+>>> fob.write('This is test writing file.')\par
+26\par
+>>> fob.close()\par
+\par
+ \par
+Read a file:\par
+fob=open('a.txt', 'r')\par
+fob.read(3)\par
+'hey'\par
+ fob.read()\par
+ ' I change this file.'\par
+fob.close()\par
+\par
+\par
+Read line of file:\par
+>>> fob=open('c:/test/a.txt', 'w')\par
+>>> fob.write('This is 1st line of test writing file.\\n')\par
+39\par
+>>> fob.write('This is 2nd line of test writing file.\\n')\par
+39\par
+>>> fob.write('This is 3rd line of test writing file.\\n')\par
+39\par
+>>> fob.close()\par
+>>> fob=open('c:/test/a.txt','r')\par
+>>> print (fob.readline())\par
+This is 1st line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+This is 2nd line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+This is 3rd line of test writing file.\par
+\par
+>>> print (fob.readline())\par
+\par
+>>> fob.close()\par
+>>> fob=open('c:/test/a.txt','r')\par
+>>> print (fob.readlines())\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', 'This is 3rd line of test writing file.\\n']\par
+>>> \par
+\par
+Modify line in a file:\par
+>>> fob=open('c:/test/a.txt', 'r')\par
+>>> listfile=fob.readlines()\par
+>>> listfile\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', 'This is 3rd line of test writing file.\\n']\par
+>>> fob.close()\par
+>>> listfile[2]='3rd line is changed.\\n'\par
+>>> listfile\par
+['This is 1st line of test writing file.\\n', 'This is 2nd line of test writing file.\\n', '3rd line is changed.\\n']\par
+>>> fob=open('c:/test/a.txt', 'w')\par
+>>> fob.writelines(listfile)\par
+>>> fob.close()\par
+\par
+% is for reminder\par
+4**3 is for 4*4*4\par
+g=input("Enter a number here:")\par
+int(g)+13=57  <---python3.4.1 g is string not int.\par
+\par
+import math\par
+math.floor(18.7)+18\par
+math.sqrt(16)=4.0\par
+bucky=math.sqrt\par
+bucky(64)=8.0\par
+print ("Hello World") <--python 3.4.1\par
+\par
+x=input("Enter Name")\par
+print ("Hey ", x)\par
+\par
+'He\\'s a good man'\par
+\par
+a="xxx"\par
+b="yyy"\par
+a+b="xxxyyy"\par
+\par
+num=str(18)\par
+print ("Bucky Id is "+num)\par
+\par
+num2=32\par
+print ("Buky\\'s mom is "+'num')\par
+\par
+'Bright'[2]=i\par
+\par
+>>> example =[0,1,2,3,4,5,6,7,8,9]\par
+>>> example[4:8]\par
+[4, 5, 6, 7]\par
+>>> example[4:10]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[4:11]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[4:110]\par
+[4, 5, 6, 7, 8, 9]\par
+>>> example[-5:0]\par
+[]\par
+>>> example[-5:-1]\par
+[5, 6, 7, 8]\par
+>>> example[-5:]\par
+[5, 6, 7, 8, 9]\par
+>>> example[:]\par
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\par
+>>> example[1:8:2]\par
+[1, 3, 5, 7]\par
+>>> example[10:0:-2]\par
+[9, 7, 5, 3, 1]\par
+>>> example[1::-2]\par
+[1]\par
+>>> example[::-2]\par
+[9, 7, 5, 3, 1]\par
+>>> [7,4,5]+[7,8,9\par
+\par
+\par
+\par
+\par
+\par
+ \par
+KeyboardInterrupt\par
+>>> [7,4,5]+[7,8,9]\par
+[7, 4, 5, 7, 8, 9]\par
+>>> 'fan'*10\par
+'fanfanfanfanfanfanfanfanfanfan'\par
+>>> [21]*10\par
+[21, 21, 21, 21, 21, 21, 21, 21, 21, 21]\par
+>>> name="roastbeef"\par
+>>> "z" in name\par
+False\par
+>>> "e" in name\par
+True\par
+\par
+>>> family=['mom', 'dad', 'emily', 'evonne']\par
+\par
+>>> "emily" in family\par
+True\par
+>>> "Emily" in family\par
+False\par
+>>> len(family)\par
+4\par
+>>> max(family)\par
+'mom'\par
+\par
+>>> numbers=[10,7,200,34,56,78,98,145]\par
+>>> max(numbers)\par
+200\par
+>>> min(numbers)\par
+7\par
+>>> list('congratulations')\par
+['c', 'o', 'n', 'g', 'r', 'a', 't', 'u', 'l', 'a', 't', 'i', 'o', 'n', 's']\par
+>>> numbers\par
+[10, 7, 200, 34, 56, 78, 98, 145]\par
+>>> numbers[3]=100\par
+>>> numbers\par
+[10, 7, 200, 100, 56, 78, 98, 145]\par
+>>> del numbers[3]\par
+>>> numbers\par
+[10, 7, 200, 56, 78, 98, 145]\par
+\par
+>>> slicing=list('intelligent')\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'i', 'g', 'e', 'n', 't']\par
+>>> slicing[6:]="BBBB"\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'B', 'B', 'B', 'B']\par
+>>> \par
+>>> slicing[6:]=list('Insert')\par
+>>> slicing\par
+['i', 'n', 't', 'e', 'l', 'l', 'I', 'n', 's', 'e', 'r', 't']\par
+\par
+>>> slicing=[7,8,9]\par
+>>> slicing\par
+[7, 8, 9]\par
+>>> slicing[1:1]=[3,3,3]\par
+>>> slicing\par
+[7, 3, 3, 3, 8, 9]\par
+>>> slicing[1:5]=[]\par
+>>> slicing\par
+[7, 9]\par
+\par
+\par
+Method/Object:\par
+>>> face=[18, 20, 14]\par
+>>> face.append(45)\par
+>>> face\par
+[18, 20, 14, 45]\par
+>>> \par
+>>> apple =['i', 'love', 'apples', 'apples', 'now']\par
+>>> apple.count('apples')\par
+2\par
+>>> one=[1,2,3]\par
+>>> two=[4,5,6]\par
+>>> one.extend(two)\par
+>>> one\par
+[1, 2, 3, 4, 5, 6]\par
+\par
+\par
+>>> say= ['hey', 'now', 'brown', 'cow']\par
+>>> say.index('brown')\par
+2\par
+>>>\par
+>>> say.insert(2,'haha')\par
+>>> say\par
+['hey', 'now', 'haha', 'brown', 'cow']\par
+>>> say.pop(2)\par
+'haha'\par
+>>> say\par
+['hey', 'now', 'brown', 'cow']\par
+>>> say.remove('Brown')\par
+Traceback (most recent call last):\par
+  File "<pyshell#158>", line 1, in <module>\par
+    say.remove('Brown')\par
+ValueError: list.remove(x): x not in list\par
+>>> say.remove('brown')\par
+>>> \par
+>>> say.reverse()\par
+>>> say\par
+['hey', 'now', 'cow']\par
+>>> say.reverse()\par
+>>>\par
+\par
+>>> new=[27,13,78,100,4,200]\par
+>>> new.sort()\par
+>>> new\par
+[4, 13, 27, 78, 100, 200]\par
+>>> sorted('Testmethod')\par
+['T', 'd', 'e', 'e', 'h', 'm', 'o', 's', 't', 't']\par
+\par
+\par
+Tuple vs. list. Tuple cannot be changed\par
+>>> 41,42,32,45\par
+(41, 42, 32, 45)\par
+>>> bucky=(41, 42, 32, 45)\par
+>>> bucky[2]\par
+32\par
+>>> \par
+>>> bucky="Hey there %s, how's your %s"\par
+>>> varb=('Fan', 'hed')\par
+>>> print (bucky % varb)\par
+Hey there Fan, how's your hed\par
+>>> examples="Hey now Wendy nice cloth"\par
+>>> examples\par
+'Hey now Wendy nice cloth'\par
+>>> examples.find('nice')\par
+14\par
+\par
+>>> file=['hey', 'how', 'to', 'glue', '?']\par
+>>> glue='append'\par
+>>> glue.join(file)\par
+'heyappendhowappendtoappendglueappend?'\par
+>>> randstr='I Wish i HAD NO issE'\par
+>>> randstr.lower()\par
+'i wish i had no isse'\par
+>>> Trytoreplace='I love Emily.'\par
+>>> Trytoreplace.replace('Emily", 'Evonne')\par
+              \par
+SyntaxError: invalid syntax\par
+>>> Trytoreplace.replace('Emily', 'Evonne')\par
+'I love Evonne.'\par
+>>> \par
+\par
+Dictionary:\par
+>>> book= \{'Dad':'Fan', 'Mom':'Wendy', 'Dr1':'Emily', 'Dr2':'Evonne'\}\par
+>>> book\par
+\{'Dad': 'Fan', 'Mom': 'Wendy', 'Dr2': 'Evonne', 'Dr1': 'Emily'\}\par
+>>> ages=\{'Dad':49,'Mom':45\}\par
+>>> ages\par
+\{'Dad': 49, 'Mom': 45\}\par
+>>> book['Mom']\par
+'Wendy'\par
+>>> ages['Mom']\par
+45\par
+>>> ages.clear()\par
+>>> ages\par
+\{\}\par
+>>> tuna=book.copy()\par
+>>> tuna\par
+\{'Dad': 'Fan', 'Mom': 'Wendy', 'Dr2': 'Evonne', 'Dr1': 'Emily'\}\par
+\par
+If/else:\par
+Fish=input("Enter fish name:")\par
+if Fish=='tuna':\par
+    print ('Good job. This is what we want')\par
+else:\par
+    print ('Not luck to catch a ', Fish)\par
+\par
+Fish=input("Enter fish name:")\par
+if Fish=='tuna':\par
+    print ('Good job. This is what we want')\par
+elif Fish=='salmon':\par
+    print ('not bad to catch a', Fish)\par
+else:\par
+    print ('Not luck to catch a', Fish)\par
+\par
+\par
+\par
+Nesting:\par
+category=input('Enter animal:')\par
+animal=input("Enter type:")\par
+if category=='animal':\par
+    if animal=='cat':\par
+        print ('This is a cat which we want.')\par
+    else:\par
+        print ('No idea which animal of this.')\par
+else:\par
+    print ('Don\\'t know what is this category.')\par
+\par
+\par
+>>> 9<7\par
+False\par
+>>> 9<=9\par
+True\par
+>>> 9!=3\par
+True\par
+>>> 9!=9\par
+False\par
+>>> one=[21,22,23]\par
+>>> two=[21,22,23]\par
+>>> one==two\par
+True\par
+>>> one is two\par
+False\par
+>>> three=four=[30,31,34]\par
+>>> three is four\par
+True\par
+>>> pizza ='pizzahut'\par
+>>> 's' in pizza\par
+False\par
+>>> 'z' in pizza\par
+True\par
+>>> \par
+\par
+>>> example=5\par
+>>> if example >3 and example <10:\par
+     print ('The number is between 3 and 10')\par
+\par
+    \par
+The number is between 3 and 10\par
+>>> if example >3 or example <4:\par
+     print ('The number is working')\par
+\par
+    \par
+The number is working\par
+>>> \par
+\par
+>>> b=1\par
+>>> while b<=10:\par
+     print ("B is:", b)\par
+     b +=1\par
+\par
+    \par
+B is: 1\par
+B is: 2\par
+B is: 3\par
+B is: 4\par
+B is: 5\par
+B is: 6\par
+B is: 7\par
+B is: 8\par
+B is: 9\par
+B is: 10\par
+\par
+For:\par
+>>> gl=['bread','milk','meat','food','beaf']\par
+>>> gl\par
+['bread', 'milk', 'meat', 'food', 'beaf']\par
+>>> for food in gl:\par
+     print ('I want '+food)\par
+\par
+    \par
+I want bread\par
+I want milk\par
+I want meat\par
+I want food\par
+I want beaf\par
+>>>\par
+\par
+ \par
+>>> ages=\{'dad':49,'mom':45,'Emily':19,'Evonne':10\}\par
+>>> for item in ages:\par
+     print (item, ages[item])\par
+\par
+    \par
+Evonne 10\par
+Emily 19\par
+dad 49\par
+mom 45\par
+>>> \par
+\par
+Loops and break:\par
+>>> while 1:\par
+     name=input("Enter something here: ")\par
+     if name=='quit': break\par
+\par
+    \par
+Enter something here: haha\par
+Enter something here: Quit\par
+Enter something here: quit\par
+>>> \par
+\par
+\par
+Eclipse works with Python:\par
+\par
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=vHRRiBHI3to"}}{\fldrslt{\ul\cf1 https://www.youtube.com/watch?v=vHRRiBHI3to}}}\f0\fs22\par
+\par
+1. Install Python 3.4.1\par
+2. Make sure Java JRE 1.7 to replace 1.6(http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html)\par
+2. Install Eclipse IDE for Java Developer\par
+3. In Eclipse, install pydev from marketPlace.\par
+4. In Eclipse, in Windows->Preference, click "Pydev" to add new interpret.\par
+\par
+import urllib.request as urllib2\par
+import requests ({\field{\*\fldinst{HYPERLINK "http://www.youtube.com/watch?v=Ng5T18HyA-Q"}}{\fldrslt{\ul\cf1 http://www.youtube.com/watch?v=Ng5T18HyA-Q}}}\f0\fs22 )\par
+\par
+{\field{\*\fldinst{HYPERLINK "http://www.pythonforbeginners.com/error-handling/python-try-and-except"}}{\fldrslt{\ul\cf1 http://www.pythonforbeginners.com/error-handling/python-try-and-except}}}\f0\fs22\par
+IOError\par
+If the file cannot be opened.\par
+ValueError\par
+Raised when a built-in operation or function receives an argument that has the\par
+right type but an inappropriate value\par
+\par
+\par
+C:\\Python34\\Scripts\\pip.exe install selenium\par
+\par
+\par
+What is 'if __name__ == "__main__"' for?\par
+The if __name__ == "__main__": ... trick exists in Python so that our Python files can act as either reusable modules, or as standalone programs. As a toy example, let\rquote s say that we have two files:\par
+\par
+\par
+Documents/python_train/Books/byte_of_python.pdf\par
+ \par
+\par
+$ cat mymath.py\par
+def square(x):\par
+    return x * x\par
+\par
+if __name__ == '__main__':\par
+    print "test: square(42) ==", square(42)\par
+\par
+\par
+$ cat mygame.py\par
+import mymath\par
+\par
+print "this is mygame."\par
+print mymath.square(17)\par
+In this example, we\rquote ve written mymath.py to be both used as a utility module, as well as a standalone program. We can run mymath standalone by doing this:\par
+\par
+$ python mymath.py\par
+test: square(42) == 1764\par
+But we can also use mymath.py as a module; let\rquote s see what happens when we run mygame.py:\par
+\par
+$ python mygame.py\par
+this is mygame.\par
+289\par
+Notice that here we don\rquote t see the \lquote test\rquote  line that mymath.py had near the bottom of its code. That\rquote s because, in this context, mymath is not the main program. That\rquote s what the if __name__ == "__main__": ... trick is used for.\par
+\par
+\par
+from selenium import webdriver\par
+>>> webdriver\par
+<module 'selenium.webdriver' from 'C:\\\\Python34\\\\lib\\\\site-packages\\\\selenium\\\\webdriver\\\\__init__.py'>\par
+\par
+Remember that you can have an Else clause for the While loop.\par
+\par
+\par
+def my_function():\par
+"""Here is the doc string.\par
+Display the requirements"""\par
+print (my_function.__doc__)\par
+\par
+import os; print(os.getcwd()) \par
+\par
+\par
+>>> import sys # get list of attributes, in this case, for the sys module\par
+>>> dir(sys)\par
+['__displayhook__', '__doc__', '__excepthook__', '__name__', '__package__', '__s\par
+tderr__', '__stdin__', '__stdout__', '_clear_type_cache', '_compact_freelists',\par
+'_current_frames', '_getframe', 'api_version', 'argv', 'builtin_module_names', '\par
+byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'dllhandle'\par
+, 'dont_write_bytecode', 'exc_info', 'excepthook', 'exec_prefix', 'executable',\par
+'exit', 'flags', 'float_info', 'getcheckinterval', 'getdefaultencoding', 'getfil\par
+esystemencoding', 'getprofile', 'getrecursionlimit', 'getrefcount', 'getsizeof',\par
+'gettrace', 'getwindowsversion', 'hexversion', 'intern', 'maxsize', 'maxunicode\par
+', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platfor\par
+m', 'prefix', 'ps1', 'ps2', 'setcheckinterval', 'setprofile', 'setrecursionlimit\par
+', 'settrace', 'stderr', 'stdin', 'stdout', 'subversion', 'version', 'version_in\par
+fo', 'warnoptions', 'winver']\par
+>>> dir() # get list of attributes for current module\par
+['__builtins__', '__doc__', '__name__', '__package__', 'sys']\par
+>>> a = 5 # create a new variable 'a'\par
+>>> dir()\par
+['__builtins__', '__doc__', '__name__', '__package__', 'a', 'sys']\par
+>>> del a # delete/remove a name\par
+>>> dir()\par
+['__builtins__', '__doc__', '__name__', '__package__', 'sys']\par
+\par
+>>>help(sys)\par
+>>>sys.__doc_\par
+\par
+Packages are just folders of modules with a special __init__.py file that indicates\par
+to Python that this folder is special because it contains Python modules.\par
+\par
+There are four built-in data structures in Python - list, tuple, dictionary and set.\par
+\par
+Parentheses Although the parentheses are optional, I prefer always having\par
+them to make it obvious that it is a tuple, especially because it avoids\par
+ambiguity. For example, print(1,2,3) and print( (1,2,3) ) mean two\par
+different things - the former prints three numbers whereas the latter prints\par
+a tuple (which contains three numbers).\par
+\par
+Tuple with 0 or 1 items An empty tuple is constructed by an empty pair of\par
+parentheses such as myempty = (). However, a tuple with a single item\par
+is not so simple. You have to specify it using a comma following the first\par
+(and only) item so that Python can differentiate between a tuple and a\par
+pair of parentheses surrounding the object in an expression i.e. you have\par
+to specify singleton = (2 , ) if you mean you want a tuple containing\par
+the item 2.\par
+ \par
+\par
+set:\par
+>>> bri = set(['brazil', 'russia', 'india'])\par
+>>> 'india' in bri\par
+True\par
+>>> 'usa' in bri\par
+False\par
+>>> bric = bri.copy()\par
+>>> bric.add('china')\par
+>>> bric.issuperset(bri)\par
+True\par
+>>> bri.remove('russia')\par
+>>> bri & bric # OR bri.intersection(bric)\par
+\{'brazil', 'india'\}\par
+\par
+\par
+>>> "hello world"\par
+'hello world'\par
+>>> type("hello world")\par
+str\par
+>>> u"hello world"\par
+u'hello world'\par
+>>> type(u"hello world")\par
+unicode\par
+\par
+We can handle exceptions using the try\'85..except statement. We basically put\par
+our usual statements within the try-block and put all our error handlers in the\par
+except-block.  \par
+\par
+You can raise exceptions using the raise statement by providing the name of\par
+the error/exception and the exception object that is to be thrown.\par
+The error or exception that you can raise should be a class which directly or\par
+indirectly must be a derived class of the Exception class.\par
+\par
+There is much more to be explored in the standard library such as debugging,\par
+handling command line options, regular expressions and so on.\par
+The best way to further explore the standard library is to read Doug Hellmann\rquote s\par
+excellent Python Module of the Week series (also available as a book) and reading\par
+the Python documentation.\par
+\par
+ruby -e "$(curl -fsSL {\field{\*\fldinst{HYPERLINK "https://raw.github.com/mxcl/homebrew/go/install"}}{\fldrslt{\ul\cf1 https://raw.github.com/mxcl/homebrew/go/install}}}\f0\fs22 )"\par
+Then brew install Python\par
+brew install python\par
+Then the pip will work\par
+ pip install -U selenium\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
